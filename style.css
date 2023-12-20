@@ -1,0 +1,78 @@
+body {
+    background-color: wheat;
+    margin: 0;
+}
+
+#container {
+    background-image: url(https://www.photos-public-domain.com/wp-content/uploads/2012/12/white-christmas-tree-lights-at-night.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100vh;
+    width: fit-content;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: auto;
+    font-family: "Permanent Marker", cursive;
+    font-size: 2vh;
+    text-align: center;
+}
+
+#game-board {
+    padding: 1em;
+    width: fit-content;
+    height: fit-content;
+}
+
+.player-panel {
+    /*padding: .5em;*/
+    padding: .5em 0;
+    width: 100%;
+    background-color: bisque;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+td {
+    opacity: .9;
+    width: 7.5vh;
+    height: 7.5vh;
+    border-radius: 40%;
+}
+
+#mez {
+    /* original src: https://everytexture.com/wp-content/uploads/2018/12/everytexture.com-stock-nature-snow-00003.jpg */
+    background-image: url(https://everytexture.com/wp-content/uploads/2018/12/everytexture.com-stock-nature-snow-00003.jpg);
+    /*border: 2px solid black;*/
+}
+
+.p4 {
+    background-color: red;
+    /*border: 2px solid black;*/
+}
+
+.p3 {
+    background-color: white;
+    /*border: 2px solid black;*/
+}
+
+.p2 {
+    background-color: rgb(85, 255, 85);
+    /*border: 2px solid black;*/
+}
+
+.p1 {
+    background-color: yellow;
+    /*border: 2px solid black;*/
+}
+
+button {
+    height: 3.5em;
+    width: 3.5em;
+}
