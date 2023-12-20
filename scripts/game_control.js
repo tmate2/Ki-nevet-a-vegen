@@ -1,15 +1,11 @@
 /**
  * Player osztály
  * 
- * magasság 25,5 cm
- * szélesség 40 cm
- * mélység: 23 cm
- * 
- * 
  */
 class Player {
 
-    constructor(name, sf) {
+    constructor(displayedName, name, sf) {
+        this.displayedName = displayedName;
         this.name = name;
         this.startField = sf;
         this.currentField = sf;
@@ -38,9 +34,6 @@ class Player {
 
     goal() {
         this.puppetsInGoal++;
-                
-        //let puppets = document.getElementById(this.name);
-        //puppets.innerHTML = parseInt(puppets.textContent) - this.puppetsInGoal;
 
         let winnerPuppets = document.getElementById(this.name+"v");
         winnerPuppets.innerHTML = this.puppetsInGoal;
@@ -51,19 +44,21 @@ class Player {
         lastField[0].innerHTML = "";
 
         this.currentField = this.startField;
+        winCheck(this.name);
     }
 
 }
 
 var playerList = [
-    new Player("p2", "m8"),
-    new Player("p1", "m0"),
-    new Player("p3", "m16"),
-    new Player("p4", "m24")
-]
+    new Player("Grincs", "p2", "m8"),
+    new Player("Rudolf", "p1", "m0"),
+    new Player("Jack Skellington", "p3", "m16"),
+    new Player("Mikulás", "p4", "m24")
+];
 
 // gombok eltárolása, a dobott szám kiírása miatt
 let btns = document.getElementsByTagName("button");
+let imgs = document.getElementsByTagName("img");
 //aktuális játékos tárolása, a 0 és az 1 fel van cserélve
 let currentPlayer = 1;
 
@@ -72,17 +67,21 @@ let currentPlayer = 1;
 function nextPlayer() {
     let dobas = doboKocka();
     
-    btns[currentPlayer].innerHTML = dobas;
+    btns[currentPlayer].style.backgroundImage = `url(imgs/${dobas}.png)`;
+    
     if (!playerList[currentPlayer].isPlaying && dobas % 2 == 0) {
         firstStep();
     } else if (playerList[currentPlayer].isPlaying) {
         playerList[currentPlayer].stepping(dobas);
         let startF = document.getElementsByClassName(playerList[currentPlayer].currentField);
-        startF[0].innerHTML = playerList[currentPlayer].name;
+        if (playerList[currentPlayer].isPlaying)
+            startF[0].innerHTML = playerList[currentPlayer].name;
     }
     
-    for(let i = 0; i < btns.length; i++)
+    for(let i = 0; i < btns.length; i++){
         btns[i].disabled = true;
+        btns[i].style.opacity = "60%";
+    }
 
     switch (currentPlayer){
         case 1:
@@ -99,6 +98,7 @@ function nextPlayer() {
     }
 
     btns[currentPlayer].disabled = false;
+    btns[currentPlayer].style.opacity = "100%";
 }
 
 function firstStep(){
@@ -131,3 +131,15 @@ function doboKocka() {
     return Math.floor(Math.random() * 6) + 1;
 }
 
+function winCheck(name) {
+    //TODO: befejezni a gratuláló szöveget és újratölteni a zoldalt
+    for (plyr in playerList) {
+        if(playerList[plyr].name == name) {
+            let playersPuppets =  document.getElementById(name+"v");
+            if (playersPuppets.textContent == "4") {
+                alert(`The winner is ${playerList[plyr].displayedName}. Congratulation!`);
+            }
+            break;
+        }
+    }
+}

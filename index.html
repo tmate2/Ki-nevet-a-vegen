@@ -5,155 +5,152 @@
     <title>Ki nevet a végén</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"-->
     <script src="scripts/loader.js"></script>
     <script src="scripts/game_control.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="welcome()">
-    <!--div id="bodiv"-->
-        <div id="container">
-            <div id="felso-game-panel" class="player-panel">
-                <div id="player2">
-                    Grincs p2
-                    <div id="player2-cube">
-                        <button id="p2-btn" class="bnt" onclick="nextPlayer()"></button>
-                    </div>
-                </div>
 
-                <div id="player1">
-                    Rudolf p1
-                    <div id="player1-cube">
-                        <button id="p1-btn" class="bnt" onclick="nextPlayer()"></button>
-                    </div>
+    <div id="container">
+
+        <div id="felso-game-panel" class="player-panel">
+            <div id="player2">
+                <p>Grincs p2</p>
+                <div id="player2-cube">
+                    <button id="p2-btn" class="bnt" onclick="nextPlayer()"></button>
                 </div>
             </div>
 
-            <div id="game-board">
-                <table>
-                    <tr>
-                        <td id="p2" class="p2">4</td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m2"></td>
-                        <td id="mez" class="mezo m1"></td>
-                        <td id="p1k" class="p1 mezo m0"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="p1" class="p1">4</td>
-                    </tr>
-                    <tr>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m3"></td>
-                        <td id="p1v" class="p1">0</td>
-                        <td id="mez" class="mezo m31"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                    </tr>
-                    <tr>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m4"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m30"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                    </tr>
-                    <tr>
-                        <td id="p2k" class="p2 mezo m8"></td>
-                        <td id="mez" class="mezo m7"></td>
-                        <td id="mez" class="mezo m6"></td>
-                        <td id="mez" class="mezo m5"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m29"></td>
-                        <td id="mez" class="mezo m28"></td>
-                        <td id="mez" class="mezo m27"></td>
-                        <td id="mez" class="mezo m26"></td>
-                    </tr>
-                    <tr>
-                        <td id="mez" class="mezo m9"></td>
-                        <td id="p2v" class="p2">0</td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="p4v" class="p4">0</td>
-                        <td id="mez" class="mezo m25"></td>
-                    </tr>
-                    <tr>
-                        <td id="mez" class="mezo m10"></td>
-                        <td id="mez" class="mezo m11"></td>
-                        <td id="mez" class="mezo m12"></td>
-                        <td id="mez" class="mezo m13"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m21"></td>
-                        <td id="mez" class="mezo m22"></td>
-                        <td id="mez" class="mezo m23"></td>
-                        <td id="p4k" class="p4 mezo m24"></td>
-                    </tr>
-                    <tr>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m14"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m20"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                    </tr>
-                    <tr>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="mez" class="mezo m15"></td>
-                        <td id="p3v" class="p3">0</td>
-                        <td id="mez" class="mezo m19"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                    </tr>
-                    <tr>
-                        <td id="p3" class="p3">4</td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="p3k" class="p3 mezo m16"></td>
-                        <td id="mez" class="mezo m17"></td>
-                        <td id="mez" class="mezo m18"></td>
-                        <td id="ur"></td>
-                        <td id="ur"></td>
-                        <td id="p4" class="p4">4</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div id="also-game-panel" class="player-panel">
-                <div id="player3">
-                    <div id="player3-cube">
-                        <button id="p3-btn" class="bnt" onclick="nextPlayer()"></button>
-                    </div>
-                    Jack Scellington p3
-                </div>
-
-                <div id="player4">
-                    <div id="player4-cube">
-                        <button id="p4-btn" class="bnt" onclick="nextPlayer()"></button>
-                    </div>
-                    Mikulás p4
+            <div id="player1">
+                <p>Rudolf p1</p>
+                <div id="player1-cube">
+                    <button id="p1-btn" class="bnt" src="" onclick="nextPlayer()"></button>
                 </div>
             </div>
         </div>
-    </!--div-->
+
+        <div id="game-board">
+            <table>
+                <tr>
+                    <td id="p2" class="p2">4</td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m2"></td>
+                    <td id="mez" class="mezo m1"></td>
+                    <td id="p1k" class="p1 mezo m0"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="p1" class="p1">4</td>
+                </tr>
+                <tr>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m3"></td>
+                    <td id="p1v" class="p1">0</td>
+                    <td id="mez" class="mezo m31"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                </tr>
+                <tr>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m4"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m30"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                </tr>
+                <tr>
+                    <td id="p2k" class="p2 mezo m8"></td>
+                    <td id="mez" class="mezo m7"></td>
+                    <td id="mez" class="mezo m6"></td>
+                    <td id="mez" class="mezo m5"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m29"></td>
+                    <td id="mez" class="mezo m28"></td>
+                    <td id="mez" class="mezo m27"></td>
+                    <td id="mez" class="mezo m26"></td>
+                </tr>
+                <tr>
+                    <td id="mez" class="mezo m9"></td>
+                    <td id="p2v" class="p2">0</td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="p4v" class="p4">0</td>
+                    <td id="mez" class="mezo m25"></td>
+                </tr>
+                <tr>
+                    <td id="mez" class="mezo m10"></td>
+                    <td id="mez" class="mezo m11"></td>
+                    <td id="mez" class="mezo m12"></td>
+                    <td id="mez" class="mezo m13"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m21"></td>
+                    <td id="mez" class="mezo m22"></td>
+                    <td id="mez" class="mezo m23"></td>
+                    <td id="p4k" class="p4 mezo m24"></td>
+                </tr>
+                <tr>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m14"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m20"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                </tr>
+                <tr>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="mez" class="mezo m15"></td>
+                    <td id="p3v" class="p3">0</td>
+                    <td id="mez" class="mezo m19"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                </tr>
+                <tr>
+                    <td id="p3" class="p3">4</td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="p3k" class="p3 mezo m16"></td>
+                    <td id="mez" class="mezo m17"></td>
+                    <td id="mez" class="mezo m18"></td>
+                    <td id="ur"></td>
+                    <td id="ur"></td>
+                    <td id="p4" class="p4">4</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="also-game-panel" class="player-panel">
+            <div id="player3">
+                <div id="player3-cube">
+                    <button id="p3-btn" class="bnt" onclick="nextPlayer()"></button>
+                </div>
+                <p>Jack Skellington p3</p>
+            </div>
+
+            <div id="player4">
+                <div id="player4-cube">
+                    <button id="p4-btn" class="bnt" onclick="nextPlayer()"></button>
+                </div>
+                <p>Mikulás p4</p>
+            </div>
+        </div>
+
+    </div>
 
 </body>
-
 </html>
