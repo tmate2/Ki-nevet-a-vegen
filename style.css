@@ -1,12 +1,17 @@
 body {
     background-color: black;
+    background-image: url(imgs/background.jpg);
+
+    background-position: left;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
 
 #container {
     /* original pic: https://www.photos-public-domain.com/wp-content/uploads/2012/12/white-christmas-tree-lights-at-night.jpg*/
-    background-image: url(imgs/background.jpg);
+    /* background-image: url(imgs/background.jpg); */
+    background-image: url(imgs/board.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -33,7 +38,7 @@ body {
 .player-panel {
     padding: .5em 0;
     width: 100%;
-    background-color: red;
+    background-color: rgb(240, 182, 57);
     opacity: 1;
     display: flex;
     flex-direction: row;
@@ -50,15 +55,21 @@ body {
 }
 
 td {
-    opacity: .9;
+    opacity: .7;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 40%;
 }
+td>img {
+    height: 3rem;
+    width: 3rem;
+}
 
 #mez {
     /* original pic: https://everytexture.com/wp-content/uploads/2018/12/everytexture.com-stock-nature-snow-00003.jpg */
-    background-image: url(imgs/snow.jpg);
+    /*background-image: url(imgs/snow.jpg);*/
+    background-color: rgb(121, 93, 71);
+    /*background-image: url(imgs/foldTexturaBingAI.jpg);*/
 }
 
 .p4 {

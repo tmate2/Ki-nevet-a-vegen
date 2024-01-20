@@ -22,6 +22,7 @@ class Player {
             //kitöröljük az előző mezőről az játékost
             let lastField = document.getElementsByClassName(this.currentField);
             lastField[0].innerHTML = "";
+            lastField[0].style.opacity = "70%";
             var newCurrentF = parseInt(this.currentField.replace("m", "")) + step;
             if( newCurrentF >= 32) {
                 newCurrentF -= 32;
@@ -42,6 +43,7 @@ class Player {
             
         let lastField = document.getElementsByClassName(this.currentField);
         lastField[0].innerHTML = "";
+        lastField[0].style.opacity = "70%";
 
         this.currentField = this.startField;
         winCheck(this.name);
@@ -74,8 +76,10 @@ function nextPlayer() {
     } else if (playerList[currentPlayer].isPlaying) {
         playerList[currentPlayer].stepping(dobas);
         let startF = document.getElementsByClassName(playerList[currentPlayer].currentField);
-        if (playerList[currentPlayer].isPlaying)
-            startF[0].innerHTML = playerList[currentPlayer].name;
+        if (playerList[currentPlayer].isPlaying) {
+            startF[0].innerHTML = `<img src='imgs/${playerList[currentPlayer].name}.png'/>`;//+playerList[currentPlayer].name;
+            startF[0].style.opacity = "100%";
+        }
     }
     
     for(let i = 0; i < btns.length; i++){
@@ -106,15 +110,24 @@ function firstStep(){
     puppets.innerHTML = parseInt(puppets.textContent) - 1;
     playerList[currentPlayer].isPlaying = true;
 
+    collision(playerList[currentPlayer].startField);
+
     let startF = document.getElementsByClassName(playerList[currentPlayer].startField);
-    startF[0].innerHTML = playerList[currentPlayer].name;
+    startF[0].innerHTML = `<img src='imgs/${playerList[currentPlayer].name}.png'/>`;
+    startF[0].style.opacity = "100%";
 }
 
 function collision(newField) {
     let field = document.getElementsByClassName(newField);
-    if (field[0].textContent != "") {
+    /*
+    Az alapjan vizsgáljuk az ütközést, hogy az új mezőnek van-e már "gyermeke".
+    Ha van ( childNodes.length > 0 ) akkor az csakis a kép miatt lehet, ezért
+    annak az "src" attribútumából megkapjuk az eliminálandó karaktert...
+    */
+    if (field[0].childNodes.length > 0) {
         for (plyr in playerList) {
-            if(field[0].textContent == playerList[plyr].name){
+            if (field[0].childNodes[0].getAttribute("src") == `imgs/${playerList[plyr].name}.png`) {
+                console.log("torolve: "+playerList[plyr]);
                 playerList[plyr].isPlaying = false;
                 playerList[plyr].steps = 0;
                 playerList[plyr].currentField = playerList[plyr].startField;
