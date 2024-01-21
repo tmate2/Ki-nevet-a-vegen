@@ -7,7 +7,7 @@ function welcome() {
 
 
 /**
- * Betöltéskor a játék elkezdése előtt letiltja az összed dobókocka gombot.
+ * Betöltéskor a játék elkezdése előtt letiltja az összes dobókocka gombot, kivéve a kezdőkarakterét.
  * Erre azért van szükség, mert újratöltésnél előfordulhat, hogy valamelyik gomb nem tiltódik le
  */
 function killBtns() {
