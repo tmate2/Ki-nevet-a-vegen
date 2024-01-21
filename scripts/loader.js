@@ -1,10 +1,15 @@
-
+/**
+ * Az oldal betöltésekor lefutó függvény, ami tiltja a gombokat és megjeleníti a szabályzatot.
+ */
 function welcome() {
     killBtns();
 }
 
-// must have tiltani az összes gombot, mert valami oknál fogva,
-// ha újratöltjük az oldalt, akkor valamelyik bekapcsolva marad...
+
+/**
+ * Betöltéskor a játék elkezdése előtt letiltja az összed dobókocka gombot.
+ * Erre azért van szükség, mert újratöltésnél előfordulhat, hogy valamelyik gomb nem tiltódik le
+ */
 function killBtns() {
     var btns = document.getElementsByTagName("button");
     for(btn in btns) {
@@ -13,4 +18,8 @@ function killBtns() {
     btns[1].disabled = false;
 }
 
+
 //TODO: játékszabályzat kiírása alert ablakban
+function rules() {
+    //TODO: fogalmazd meg
+}
